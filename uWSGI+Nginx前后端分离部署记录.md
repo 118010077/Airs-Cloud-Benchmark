@@ -1,7 +1,7 @@
 ## 基于Nginx的Django + uwsgi前后端分离部署记录
 ### 相关介绍  
 可参考该视频对本文档所安装的相关内容进行基本了解：https://www.youtube.com/watch?v=UklcIDgHtwQ    
-![p1](../images/nginx01.png)  
+![p1](./images/nginx01.png)  
 以及前后端分离部署的参考记录：https://www.jianshu.com/p/a18aa307a95a  
 当用户访问某网站时需要将请求发送给web server(本服务器采用即将被安装的Nginx)。而当网页逐渐变得复杂，用户的输入变得更加多样时，我们则需要在其子进程中内置一个脚本将用户的相关输入和请求转换为html语言以供用户的浏览器使用。python语言定义的相关脚本接口即为WSGI（Web Server Gateway Interface ）。本文安装的uWSGI可以实现同WSGI相同的功能，同时拥有更高的工作效率并且本身也可以作为服务器被用户访问。  
 同时，由于我们需要实现的是前后端分离的架构，需要解决前后端的跨域问题，如何设置Nginx是最重要的问题。  
@@ -10,7 +10,7 @@
 ### 1. 安装Nginx并开放HTTP连接（利用EPEL拓展包）
 https://qizhanming.com/blog/2018/08/06/how-to-install-nginx-on-centos-7（反向代理相关）
 1.1 进入10.21.44.36服务器后首先使用df -h查看磁盘状态，如图所示，可用空间较多，可以进行后续安装。  
-![p2](../images/nginx02.png)  
+![p2](./images/nginx02.png)  
 1.2 安装EPEL拓展包
 > sudo yum install epel-release  
 
@@ -44,7 +44,7 @@ $ sudo firewall-cmd --reload
 > sudo systemctl start nginx
 
 之后从浏览器(需要接入学校局域网)输入10.21.44.36后可以进入如下基础界面：
-![p3](../images/nginx04.png)  
+![p3](./images/nginx04.png)  
 
 ### 2. 部署后端代码（安装并配置uWSGI）
 2.1 安装python3 （如已安装可跳过该步骤）
@@ -79,7 +79,7 @@ $ sudo firewall-cmd --reload
 > yum install -y pcre pcre-devel pcre-static  
 > yum group install "Development Tools"
 > yum -y install python36-devel  
-![p3](../images/nginx03.png)  
+![p3](./images/nginx03.png)  
 
 
 最后通过项目中requirements目录所提供的`common.txt`安装所需库及uwsgi，(不同的环境可能会出现不同的安装错误，届时请自行查询解决方法。)
@@ -188,7 +188,7 @@ WantedBy=multi-user.target
         }
 ~~~
 上述配置文件将会将http://10.21.44.36:80/ 的url自动跳转到前端代码上，输入http://10.21.44.36 若能够看到前端界面则部署成功。  
-![p7](../images/nginx07.png)   
+![p7](./images/nginx07.png)   
 注意此处我们仍然在使用http协议，https协议和相关证书配置在下文介绍。
 配置完成后重新启动nginx会遇到403错误。原因是SELinux阻止了外部的访问。
 进行如下操作将Nginx加入白名单
