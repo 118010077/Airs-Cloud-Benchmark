@@ -44,7 +44,7 @@ $ sudo firewall-cmd --reload
 > sudo systemctl start nginx
 
 之后从浏览器(需要接入学校局域网)输入10.21.44.36后可以进入如下基础界面：
-![p3](./images/nginx04.png)  
+![p](./images/nginx04.png)  
 
 ### 2. 部署后端代码（安装并配置uWSGI）
 2.1 安装python3 （如已安装可跳过该步骤）
