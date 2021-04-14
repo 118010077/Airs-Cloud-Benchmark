@@ -5,7 +5,6 @@
 以及前后端分离部署的参考记录：https://www.jianshu.com/p/a18aa307a95a  
 当用户访问某网站时需要将请求发送给web server(本服务器采用即将被安装的Nginx)。而当网页逐渐变得复杂，用户的输入变得更加多样时，我们则需要在其子进程中内置一个脚本将用户的相关输入和请求转换为html语言以供用户的浏览器使用。python语言定义的相关脚本接口即为WSGI（Web Server Gateway Interface ）。本文安装的uWSGI可以实现同WSGI相同的功能，同时拥有更高的工作效率并且本身也可以作为服务器被用户访问。  
 同时，由于我们需要实现的是前后端分离的架构，需要解决前后端的跨域问题，如何设置Nginx是最重要的问题。  
-**本次部署将前端和后端分别部署在了10.21.44.36服务器的443和8080端口**  
 服务器的系统为CentOS7.8（**Ubuntu上的nginx配置方法与CentOS略有不同，请有需要的同事自行查询学习**）， Linux内核版本3.10.0（x86_64）  
 ### 1. 安装Nginx并开放HTTP连接（利用EPEL拓展包）
 https://qizhanming.com/blog/2018/08/06/how-to-install-nginx-on-centos-7（反向代理相关）
@@ -250,7 +249,7 @@ Email Address []:nancygong@cuhk.edu.cn
 ```
 
 生成服务器密钥：
-> openssl genrsa -des3 -out server.key 2048    密码设置为ladaydayup
+> openssl genrsa -des3 -out server.key 2048    密码设置为*****
 
 随后创建证书申请文件(.csr)**请确认config行 cat /etc/pki/tls/openssl.cnf 
 的内容为服务器上的openssl配置文件的位置， subjectAltName可根据需要自行进行设置**:
@@ -284,7 +283,7 @@ Email Address []:nancygong@cuhk.edu.cn
 
 Please enter the following 'extra' attributes
 to be sent with your certificate request
-A challenge password []: ladaydayup2020
+A challenge password []: ******
 An optional company name []:SRIBD
 ```
 设置ssl密钥使我们在设置nginx时不再需要再输入密钥信息：
