@@ -1,6 +1,6 @@
 ### Course Work
 该目录下的文件为我在大学课程与其他同学合作完成的Project  
-This directory saves the project I finished with my teammates.   
+This directory saves the university course projects that I finished with my teammates.   
 </br>
 其中T5Final和exp1为我在云计算课程中进行的实验及相关文档    
 T5Final and exp1 are the experiment reports which my group wrote in the Cloud Computing course.  
