@@ -7,3 +7,6 @@ exp1 and exp2 are the experiment reports which my group wrote in the Cloud Compu
 </br>
 Compiler目录下是我们在C++课程中制作的简易编译器+编辑器, 其中我负责的部分是Parser和Lexer  
 Compiler Directory contains the simplified compiler + editor that we did in the C++ course. I am responsible for the Parser and Lexer components.  
+</br>
+DSC前缀的两个文件是我在UCSD交流时所修读的DSC80（数据分析）课程中完成的小项目作业。
+The two pdf documents with DSC prefix are the reports that I did in DSC 80 (Data Analysis Coures) when I was in UCSD's visiting program. 
