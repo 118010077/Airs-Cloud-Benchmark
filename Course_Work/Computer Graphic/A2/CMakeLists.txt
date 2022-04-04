@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.8)
+project( DisplayImage )
+find_package( OpenCV REQUIRED )
+#find_package( Eigen3 REQUIRED)
+#include_directories(${EIGEN3_INCLUDE_DIRS})
+file(GLOB SRC_FILE src/*.cpp src/header/*.h)
+add_executable( DisplayImage ${SRC_FILE})
+target_link_libraries( DisplayImage ${OpenCV_LIBS} )
